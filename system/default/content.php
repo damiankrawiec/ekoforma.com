@@ -13,6 +13,14 @@ $label = $object->getAllLabel();
 
 <div id="im-content">
 
+    <div class="container-fluid">
+
+        <?php $object->display($sectionData->id, $label['menu']); ?>
+
+        <?php $object->display($sectionData->id, $label['logo']); ?>
+
+    </div>
+
     <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?>">
 
         <?php
@@ -26,15 +34,11 @@ $label = $object->getAllLabel();
 
         ?>
 
-        <?php $object->display($sectionData->id, $label['menu']); ?>
+        <?php $object->display($sectionData->id, $label['row-1']); ?>
 
-        <?php $object->display($sectionData->id, $label['logo']); ?>
+        <?php $object->display($sectionData->id, $label['row-2']); ?>
 
-        <?php //$object->display($sectionData->id, $label['submenu'], 'parent,begin'); ?>
-
-        <?php //$object->display($sectionData->id, $label['slider'], 'end'); ?>
-
-        <?php //$object->display($sectionData->id, $label['news'], 'begin'); ?>
+        <?php $object->display($sectionData->id, $label['row-3']); ?>
 
         <?php //$object->display($sectionData->id, $label['company-skill'], 'end,pagination:1,scroll'); ?>
 

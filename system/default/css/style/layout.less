@@ -2,9 +2,49 @@
   width: 85%;
   margin-right: 322px;
   background-color: @white;
-  height: 100%;
+  min-height: 100%;
   .content-shadow();
 }
+.menu{
+  nav{
+    ul{
+      li{
+        a{
+          font-size: 17px;
+        }
+      }
+      li.active{
+        border-bottom: 2px solid @success;
+      }
+    }
+  }
+}
+.objects:not(.logo) {
+  .object {
+    margin: 30px 0 10px;
+    border: 10px solid @white;
+    img {
+      width: 100%;
+    }
+    .carousel {
+      i {
+        font-size: 40px;
+      }
+    }
+    .title{
+      section{
+        font-size: 17px;
+      }
+    }
+    .text{
+      section, p{
+        font-size: 15px;
+        line-height: 28px;
+      }
+    }
+  }
+}
+
 
 //.im-logo{
 //  text-align: center;

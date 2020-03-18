@@ -14,9 +14,33 @@ body {
   width: 85%;
   margin-right: 322px;
   background-color: #fff;
-  height: 100%;
+  min-height: 100%;
   -webkit-box-shadow: 6px 0px 23px 11px rgba(0, 0, 0, 0.53);
   -moz-box-shadow: 6px 0px 23px 11px rgba(0, 0, 0, 0.53);
   box-shadow: 6px 0px 23px 11px rgba(0, 0, 0, 0.53);
+}
+.menu nav ul li a {
+  font-size: 17px;
+}
+.menu nav ul li.active {
+  border-bottom: 2px solid #28a745;
+}
+.objects:not(.logo) .object {
+  margin: 30px 0 10px;
+  border: 10px solid #fff;
+}
+.objects:not(.logo) .object img {
+  width: 100%;
+}
+.objects:not(.logo) .object .carousel i {
+  font-size: 40px;
+}
+.objects:not(.logo) .object .title section {
+  font-size: 17px;
+}
+.objects:not(.logo) .object .text section,
+.objects:not(.logo) .object .text p {
+  font-size: 15px;
+  line-height: 28px;
 }
 /*# sourceMappingURL=main.css.map */
