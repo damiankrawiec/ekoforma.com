@@ -13,6 +13,8 @@ $label = $object->getAllLabel();
 
 <div id="im-content">
 
+<!-- Menu and logo on full width-->
+
     <div class="container-fluid">
 
         <?php $object->display($sectionData->id, $label['menu']); ?>
