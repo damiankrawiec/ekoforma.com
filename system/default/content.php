@@ -21,6 +21,8 @@ $label = $object->getAllLabel();
 
         <?php $object->display($sectionData->id, $label['about']); ?>
 
+        <!-- end position -->
+
         <?php $object->display($sectionData->id, $label['menu']); ?>
 
         <?php $object->display($sectionData->id, $label['logo']); ?>
