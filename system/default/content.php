@@ -13,9 +13,13 @@ $label = $object->getAllLabel();
 
 <div id="im-content">
 
-<!-- Menu and logo on full width-->
+<!-- Menu and logo on full width -->
 
     <div class="container-fluid">
+
+        <!-- Position absolute or fixed -->
+
+        <?php $object->display($sectionData->id, $label['about']); ?>
 
         <?php $object->display($sectionData->id, $label['menu']); ?>
 
