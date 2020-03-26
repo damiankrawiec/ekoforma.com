@@ -19,6 +19,8 @@ $label = $object->getAllLabel();
 
         <!-- Position absolute or fixed -->
 
+        <?php $object->display($sectionData->id, $label['social-media']); ?>
+
         <?php $object->display($sectionData->id, $label['about']); ?>
 
         <!-- end position -->
@@ -61,15 +63,19 @@ $label = $object->getAllLabel();
 
     </div>
 
-</div>
+    <div class="container-fluid">
 
-<!--<div class="im-footer">-->
-<!--    <div class="container-fluid">-->
-<!---->
-<!--    </div>-->
-<!--</div>-->
+        <?php $object->display($sectionData->id, $label['footer']); ?>
+
+        <?php $object->display($sectionData->id, $label['footer-sitemap']); ?>
+
+        <?php $object->display($sectionData->id, $label['author']); ?>
+
+    </div>
+
+</div>
 
 <?php
 
-//if(!isset($session['cookie']))
-//    $object->display($sectionData->id, $label['cookie']);
+if(!isset($session['cookie']))
+    $object->display($sectionData->id, $label['cookie']);

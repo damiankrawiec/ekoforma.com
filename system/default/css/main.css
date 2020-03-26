@@ -25,6 +25,23 @@ body {
 .menu nav ul li.active {
   border-bottom: 2px solid #28a745;
 }
+.menu nav ul li.separator {
+  padding: 7px;
+}
+.menu nav ul li.separator i {
+  color: #ddd;
+  font-size: 7px;
+}
+.footer-sitemap .navbar-nav {
+  margin: 0 auto;
+}
+.footer-sitemap .navbar-nav li.separator {
+  padding: 7px;
+}
+.footer-sitemap .navbar-nav li.separator i {
+  color: #ddd;
+  font-size: 7px;
+}
 .objects:not(.logo) .object {
   margin-bottom: 10px;
 }
@@ -51,5 +68,44 @@ body {
 }
 .about .carousel-caption {
   display: none !important;
+}
+#cookie {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #333;
+  opacity: 0.8;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  color: #fff;
+}
+.social-media {
+  position: fixed;
+  left: 15px;
+  top: 300px;
+  z-index: 1;
+}
+.social-media .object {
+  opacity: 0.9;
+  padding: 8px 3px 5px;
+  margin-top: 1px;
+  background: #333;
+  z-index: 12;
+  text-align: center;
+}
+.social-media .object i {
+  color: #fff;
+  font-size: 24px;
+}
+.row-1 {
+  margin-top: 80px;
+}
+@media (max-width: 992px) {
+  .separator,
+  .footer-sitemap {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */
