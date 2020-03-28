@@ -75,6 +75,10 @@ $label = $object->getAllLabel();
 
 </div>
 
+<!--Title of first row need to be injection by jQuery (RWD grid) -->
+
+<?php $object->display($sectionData->id, $label['title-row']); ?>
+
 <?php
 
 if(!isset($session['cookie']))

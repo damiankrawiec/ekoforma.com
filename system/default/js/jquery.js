@@ -2,4 +2,6 @@ $(function(){
 
     addMenuSeparator();
 
+    titleRow();
+
 });
