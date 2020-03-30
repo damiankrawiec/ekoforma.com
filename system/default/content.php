@@ -31,7 +31,7 @@ $label = $object->getAllLabel();
 
     </div>
 
-    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?>">
+    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
 
         <?php
 
@@ -78,6 +78,10 @@ $label = $object->getAllLabel();
 <!--Title of first row need to be injection by jQuery (RWD grid) -->
 
 <?php $object->display($sectionData->id, $label['title-row']); ?>
+
+<!--Title of first, second, third row (at the beginning) need to be injection by jQuery (RWD grid) -->
+
+<?php $object->display($sectionData->id, $label['title-col']); ?>
 
 <?php
 

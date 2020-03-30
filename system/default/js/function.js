@@ -10,24 +10,33 @@ function addMenuSeparator() {
 
 }
 
-function titleRow() {
+function title() {
 
-    var $titleClass = false;
+    var $titleRow = [];
 
-    var $titleContent = [];
+    var $titleCol = [];
 
     $('.title-row .object').each(function($i) {
 
-        if(!$titleClass)
-            $titleClass = $(this).attr('class').replace('object ', '');
+        $titleRow[$i] = $(this).html();
 
-        $titleContent[$i] = $(this).html();
+    });
+
+    $('.title-col .object').each(function($i) {
+
+        $titleCol[$i] = $(this).find('section').text();
 
     });
 
     $('.row-1 .object').each(function($i) {
 
-        $(this).prepend($titleContent[$i]);
+        $(this).prepend($titleRow[$i]);
+
+    });
+
+    $('.im-content-inside .objects').each(function($j){
+
+        $(this).prepend('<div class="title-col-text">' + $titleCol[$j] + '</div>');
 
     });
 

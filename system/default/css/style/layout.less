@@ -5,6 +5,12 @@
   min-height: 100%;
   margin: 50px 0 50px;
   .content-shadow();
+  img:hover{
+    opacity: 0.8;
+  }
+}
+.im-content-inside{
+
 }
 .menu{
   nav{
@@ -107,8 +113,10 @@
     }
   }
 }
+.row-1, .row-2, .row-3 {
+    margin-top: 80px;
+}
 .row-1{
-  margin-top: 80px;
   .object{
     .row:first-child {
       border-bottom: 2px solid @green;
@@ -119,9 +127,38 @@
       }
     }
   }
+  .title-col-text{
+    top: 53px;
+  }
 }
-
-
+.title-col-text {
+  position: absolute;
+  left: -130px;
+  font-size: 26px;
+  text-align: center;
+  background-color: @light-gray;
+  margin-bottom: 10px;
+}
+.row-1{
+  .title-col-text{
+    padding: 0 6px 0;
+  }
+}
+.row-2{
+  .title-col-text{
+    padding: 0 14px 0;
+  }
+}
+.row-3{
+  .title-col-text{
+    padding: 0 16px 0;
+  }
+}
+.im-content-inside {
+  .objects {
+    position: relative;
+  }
+}
 //.im-logo{
 //  text-align: center;
 //  padding: 5px;
