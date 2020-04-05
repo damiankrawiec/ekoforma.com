@@ -33,7 +33,7 @@ body {
   padding: 7px;
 }
 .menu nav ul li.separator i {
-  color: #ddd;
+  color: #eee;
   font-size: 7px;
 }
 .footer-sitemap .navbar-nav {
@@ -43,7 +43,7 @@ body {
   padding: 7px;
 }
 .footer-sitemap .navbar-nav li.separator i {
-  color: #ddd;
+  color: #eee;
   font-size: 7px;
 }
 .objects:not(.logo) .object {
@@ -106,7 +106,17 @@ body {
 .row-1,
 .row-2,
 .row-3 {
-  margin-top: 80px;
+  margin-top: 20px;
+}
+.row-1 .object,
+.row-3 .object,
+.row-1 .title-col-text,
+.row-3 .title-col-text {
+  border: 20px solid #fff;
+}
+.row-2 .object,
+.row-2 .title-col-text {
+  border: 20px solid #eee;
 }
 .row-1 .object .row:first-child {
   border-bottom: 2px solid #4da65b;
@@ -116,28 +126,31 @@ body {
 .row-1 .object .row:first-child section {
   font-size: 24px;
 }
-.row-1 .title-col-text {
-  top: 53px;
-}
 .title-col-text {
   position: absolute;
-  left: -130px;
   font-size: 26px;
   text-align: center;
-  background-color: #ddd;
   margin-bottom: 10px;
+  left: -159px;
 }
 .row-1 .title-col-text {
   padding: 0 6px 0;
+  top: 53px;
 }
 .row-2 .title-col-text {
   padding: 0 14px 0;
+  top: 20px;
 }
 .row-3 .title-col-text {
   padding: 0 16px 0;
+  top: 0;
 }
 .im-content-inside .objects {
   position: relative;
+}
+.im-background {
+  padding: 10px;
+  background-color: #eee;
 }
 @media (max-width: 992px) {
   .separator,

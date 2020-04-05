@@ -46,11 +46,21 @@ $label = $object->getAllLabel();
 
         <?php $object->display($sectionData->id, $label['row-1']); ?>
 
-        <?php $object->display($sectionData->id, $label['row-2']); ?>
+    </div>
+
+    <div class="im-background">
+
+        <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
+
+            <?php $object->display($sectionData->id, $label['row-2']); ?>
+
+        </div>
+
+    </div>
+
+    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
 
         <?php $object->display($sectionData->id, $label['row-3']); ?>
-
-        <?php //$object->display($sectionData->id, $label['company-skill'], 'end,pagination:1,scroll'); ?>
 
         <?php
 
