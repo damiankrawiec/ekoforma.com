@@ -31,6 +31,7 @@ $label = $object->getAllLabel();
 
     </div>
 
+    <!-- Only this section is displayed in everything section -->
     <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
 
         <?php
