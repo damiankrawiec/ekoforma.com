@@ -23,6 +23,17 @@ body {
 #im-content img:hover {
   opacity: 0.8;
 }
+.im-content-inside {
+  margin-top: 30px;
+}
+.im-content-inside .content-text section,
+.im-content-inside .content-text p {
+  font-size: 18px;
+  line-height: 30px;
+}
+.im-content-inside .im-border-top {
+  border-top: 2px solid #ccc;
+}
 .menu nav ul li a {
   font-size: 17px;
 }
@@ -102,11 +113,6 @@ body {
 .social-media .object i {
   color: #fff;
   font-size: 24px;
-}
-.row-1,
-.row-2,
-.row-3 {
-  margin-top: 20px;
 }
 .row-1 .object,
 .row-3 .object,

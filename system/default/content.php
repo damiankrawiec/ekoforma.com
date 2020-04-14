@@ -44,34 +44,50 @@ $label = $object->getAllLabel();
 
         ?>
 
-        <?php $object->display($sectionData->id, $label['row-1']); ?>
-
-    </div>
-
-    <div class="im-background">
-
-        <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
-
-            <?php $object->display($sectionData->id, $label['row-2']); ?>
-
-        </div>
-
-    </div>
-
-    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
-
-        <?php $object->display($sectionData->id, $label['row-3']); ?>
-
         <?php
 
-        //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
-        //In static file should be defined class, rows, col, etc. - content fix to rest page box
-        //Name of files may only string section - check in foreach(dir) and stristr()
-        $object->displayStatic($sectionData->id);
+        if($sectionData->url === 'home') {
+
+            $object->display($sectionData->id, $label['row-1']);
+
+        }else{
+
+            $object->display($sectionData->id, $label['content']);
+
+        }
 
         ?>
 
     </div>
+
+    <?php if($sectionData->url === 'home') { ?>
+
+        <div class="im-background">
+
+            <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
+
+                <?php $object->display($sectionData->id, $label['row-2']); ?>
+
+            </div>
+
+        </div>
+
+        <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
+
+            <?php $object->display($sectionData->id, $label['row-3']); ?>
+
+        </div>
+
+    <?php } ?>
+
+    <?php
+
+    //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
+    //In static file should be defined class, rows, col, etc. - content fix to rest page box
+    //Name of files may only string section - check in foreach(dir) and stristr()
+    $object->displayStatic($sectionData->id);
+
+    ?>
 
     <div class="container-fluid">
 
