@@ -124,12 +124,11 @@ body {
 .row-2 .title-col-text {
   border: 20px solid #eee;
 }
-.row-1 .object .row:first-child {
-  border-bottom: 2px solid #4da65b;
+#home .row-1 .object .row:first-child {
   margin: 0;
   margin-bottom: 15px;
 }
-.row-1 .object .row:first-child section {
+#home .row-1 .object .row:first-child section {
   font-size: 24px;
 }
 .title-col-text {

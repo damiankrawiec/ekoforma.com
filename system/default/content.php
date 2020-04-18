@@ -32,7 +32,7 @@ $label = $object->getAllLabel();
     </div>
 
     <!-- Only this section is displayed in everything section -->
-    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
+    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside" id="<?php echo $sectionData->url; ?>">
 
         <?php
 
@@ -47,15 +47,10 @@ $label = $object->getAllLabel();
 
         <?php
 
-        if($sectionData->url === 'home') {
+        if($sectionData->url !== 'home')
+            echo '<div class="text-center h4 p-3">'.$sectionData->name.'</div>';
 
-            $object->display($sectionData->id, $label['row-1']);
-
-        }else{
-
-            $object->display($sectionData->id, $label['content']);
-
-        }
+        $object->display($sectionData->id, $label['row-1']);
 
         ?>
 
