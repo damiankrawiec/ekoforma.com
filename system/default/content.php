@@ -13,26 +13,25 @@ $label = $object->getAllLabel();
 
 <div id="im-content">
 
-<!-- Menu and logo on full width -->
+    <div id="<?php echo $sectionData->url; ?>">
 
-    <div class="container-fluid">
+        <!-- Menu and logo on full width -->
 
-        <!-- Position absolute or fixed -->
+        <div class="container-fluid">
 
-        <?php $object->display($sectionData->id, $label['social-media']); ?>
+            <!-- Position absolute or fixed -->
 
-        <?php $object->display($sectionData->id, $label['about']); ?>
+            <?php $object->display($sectionData->id, $label['social-media']); ?>
 
-        <!-- end position -->
+            <?php $object->display($sectionData->id, $label['about']); ?>
 
-        <?php $object->display($sectionData->id, $label['menu']); ?>
+            <!-- end position -->
 
-        <?php $object->display($sectionData->id, $label['logo']); ?>
+            <?php $object->display($sectionData->id, $label['menu']); ?>
 
-    </div>
+            <?php $object->display($sectionData->id, $label['logo']); ?>
 
-    <!-- Only this section is displayed in everything section -->
-    <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside" id="<?php echo $sectionData->url; ?>">
+        </div>
 
         <?php
 
@@ -47,63 +46,81 @@ $label = $object->getAllLabel();
 
         <?php
 
-        if($sectionData->url !== 'home')
-            echo '<div class="text-center h4 p-3">'.$sectionData->name.'</div>';
+            if($sectionData->url !== 'home')
+                echo '<div class="text-center h4 p-3">'.$sectionData->name.'</div>';
 
-        $object->display($sectionData->id, $label['row-1']);
+            if($sectionData->url !== 'lifestyle' and $sectionData->url !== 'podroze') {
+
+                echo '<div class="' . (!isset($sectionData->class) ? 'container' : $sectionData->class) . ' animated fadeIn im-content-inside">';
+
+                    $object->display($sectionData->id, $label['row-1']);
+
+                echo '</div>';
+
+            }
+
+            if($sectionData->url === 'home' or $sectionData->url === 'lifestyle') {
+
+                if($sectionData->url === 'home')
+                    echo '<div class="im-background">';
+
+                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
+
+                    $object->display($sectionData->id, $label['row-2']);
+
+                echo '</div>';
+
+                if($sectionData->url === 'home')
+                    echo '</div>';
+
+            }
+
+            if($sectionData->url === 'home' or $sectionData->url === 'podroze') {
+
+                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
+
+                    $object->display($sectionData->id, $label['row-3']);
+
+                echo '</div>';
+
+            }
 
         ?>
 
-    </div>
+        <?php
 
-    <?php if($sectionData->url === 'home') { ?>
+        //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
+        //In static file should be defined class, rows, col, etc. - content fix to rest page box
+        //Name of files may only string section - check in foreach(dir) and stristr()
+        $object->displayStatic($sectionData->id);
 
-        <div class="im-background">
+        ?>
 
-            <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
+        <div class="container-fluid">
 
-                <?php $object->display($sectionData->id, $label['row-2']); ?>
+            <?php $object->display($sectionData->id, $label['footer']); ?>
 
-            </div>
+            <?php $object->display($sectionData->id, $label['footer-sitemap']); ?>
+
+            <?php $object->display($sectionData->id, $label['author']); ?>
 
         </div>
-
-        <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?> animated fadeIn im-content-inside">
-
-            <?php $object->display($sectionData->id, $label['row-3']); ?>
-
-        </div>
-
-    <?php } ?>
-
-    <?php
-
-    //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
-    //In static file should be defined class, rows, col, etc. - content fix to rest page box
-    //Name of files may only string section - check in foreach(dir) and stristr()
-    $object->displayStatic($sectionData->id);
-
-    ?>
-
-    <div class="container-fluid">
-
-        <?php $object->display($sectionData->id, $label['footer']); ?>
-
-        <?php $object->display($sectionData->id, $label['footer-sitemap']); ?>
-
-        <?php $object->display($sectionData->id, $label['author']); ?>
 
     </div>
 
 </div>
 
-<!--Title of first row need to be injection by jQuery (RWD grid) -->
+<?php if($sectionData->url === 'home') { ?>
 
-<?php $object->display($sectionData->id, $label['title-row']); ?>
+    <!--Title of first row need to be injection by jQuery (RWD grid) -->
 
-<!--Title of first, second, third row (at the beginning) need to be injection by jQuery (RWD grid) -->
+    <?php $object->display($sectionData->id, $label['title-row']); ?>
 
-<?php $object->display($sectionData->id, $label['title-col']); ?>
+    <!--Title of first, second, third row (at the beginning) need to be injection by jQuery (RWD grid) -->
+
+    <?php $object->display($sectionData->id, $label['title-col']); ?>
+
+<?php } ?>
 
 <?php
 

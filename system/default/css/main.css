@@ -120,16 +120,16 @@ body {
 .row-3 .title-col-text {
   border: 20px solid #fff;
 }
-.row-2 .object,
-.row-2 .title-col-text {
-  border: 20px solid #eee;
-}
 #home .row-1 .object .row:first-child {
   margin: 0;
   margin-bottom: 15px;
 }
 #home .row-1 .object .row:first-child section {
   font-size: 24px;
+}
+#home .row-2 .object,
+#home .row-2 .title-col-text {
+  border: 20px solid #eee;
 }
 .title-col-text {
   position: absolute;
