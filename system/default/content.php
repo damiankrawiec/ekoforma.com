@@ -27,7 +27,7 @@ $label = $object->getAllLabel();
 
             <!-- end position -->
 
-            <?php $object->display($sectionData->id, $label['menu']); ?>
+            <?php $object->display($sectionData->id, $label['menu'], 'submenu'); ?>
 
             <?php $object->display($sectionData->id, $label['logo']); ?>
 
@@ -46,8 +46,24 @@ $label = $object->getAllLabel();
 
         <?php
 
-            if($sectionData->url !== 'home')
-                echo '<div class="text-center h4 p-3">'.$sectionData->name.'</div>';
+            if($sectionData->url !== 'home') {
+
+                echo '<div class="text-center h4 p-3 section-title">';
+
+                if($sectionData->icon !== '')
+                    echo '<i class="'.$sectionData->icon.'"></i>';
+
+                    echo $sectionData->name;
+
+                echo '</div>';
+
+            }
+
+            if($sectionData->url === 'sniadania') {
+
+                $object->display($sectionData->id, $label['menu'], 'parent');
+
+            }
 
             if($sectionData->url !== 'lifestyle' and $sectionData->url !== 'podroze') {
 

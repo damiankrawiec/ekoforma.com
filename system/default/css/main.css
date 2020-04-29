@@ -47,6 +47,15 @@ body {
   color: #eee;
   font-size: 7px;
 }
+.menu nav ul li.dropdown section#im_section-name-4 {
+  float: left;
+  margin-right: 3px;
+}
+.menu nav ul li.dropdown .dropdown-menu i {
+  float: left;
+  margin-right: 7px;
+  font-size: 21px;
+}
 .footer-sitemap .navbar-nav {
   margin: 0 auto;
 }
@@ -156,6 +165,14 @@ body {
 .im-background {
   padding: 10px;
   background-color: #eee;
+}
+#home .form-group,
+#skladniki .form-group {
+  display: none;
+}
+.section-title i {
+  font-size: 24px;
+  margin-right: 5px;
 }
 @media (max-width: 992px) {
   .separator,
