@@ -5,7 +5,7 @@ require_once 'content/object/object.class.php';
 
 $object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin);
 
-$sectionData = $this->getSection();
+$sectionData = $this->getSection($this->currentSection);
 
 $label = $object->getAllLabel();
 
@@ -13,7 +13,7 @@ $label = $object->getAllLabel();
 
 <div id="im-content">
 
-    <div id="<?php echo $sectionData->url; ?>">
+    <div id="<?php echo $this->currentSection; ?>">
 
         <!-- Menu and logo on full width -->
 
@@ -21,15 +21,15 @@ $label = $object->getAllLabel();
 
             <!-- Position absolute or fixed -->
 
-            <?php $object->display($sectionData->id, $label['social-media']); ?>
+            <?php $object->display($sectionData['id'], $label['social-media']); ?>
 
-            <?php $object->display($sectionData->id, $label['about']); ?>
+            <?php $object->display($sectionData['id'], $label['about']); ?>
 
             <!-- end position -->
 
-            <?php $object->display($sectionData->id, $label['menu'], 'submenu'); ?>
+            <?php $object->display($sectionData['id'], $label['menu'], 'submenu'); ?>
 
-            <?php $object->display($sectionData->id, $label['logo']); ?>
+            <?php $object->display($sectionData['id'], $label['logo']); ?>
 
         </div>
 
@@ -46,60 +46,63 @@ $label = $object->getAllLabel();
 
         <?php
 
-            if($sectionData->url !== 'home' and $sectionData->parent != $this->getIdFromUrl('ekopasnik', $db)) {
+            //div class to all rows (it is only variable:string)
+            $divClass = ' class="' . (!isset($sectionData['class']) ? 'container' : $sectionData['class']) . ' animated fadeIn im-content-inside"';
+
+            if($this->currentSection !== 'home' and $sectionData['parent'] != $this->getSection('ekopasnik', 'id')) {
 
                 echo '<div class="text-center h4 p-3 section-title">';
 
-                if($sectionData->icon !== '')
-                    echo '<i class="'.$sectionData->icon.'"></i>';
+                if($sectionData['icon'] !== '')
+                    echo '<i class="'.$sectionData['icon'].'"></i>';
 
-                    echo $sectionData->name;
-
-                echo '</div>';
-
-            }
-
-            if($sectionData->url === 'sniadania') {
-
-                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
-
-                    $object->display($this->getIdFromUrl('ekopasnik', $db), $label['submenu'], 'parent');
+                    echo $sectionData['name'];
 
                 echo '</div>';
 
             }
 
-            if($sectionData->url !== 'lifestyle' and $sectionData->url !== 'podroze') {
+            if(stristr('sniadania', $this->currentSection)) {
 
-                echo '<div class="' . (!isset($sectionData->class) ? 'container' : $sectionData->class) . ' animated fadeIn im-content-inside">';
+                echo '<div class="container">';
 
-                    $object->display($sectionData->id, $label['row-1']);
+                    $object->display($this->getSection('ekopasnik', 'id'), $label['submenu'], 'parent');
 
                 echo '</div>';
 
             }
 
-            if($sectionData->url === 'home' or $sectionData->url === 'lifestyle') {
+            if(!stristr('lifestyle, podroze', $this->currentSection)) {
 
-                if($sectionData->url === 'home')
+                echo '<div'.$divClass.'>';
+
+                    $object->display($sectionData['id'], $label['row-1']);
+
+                echo '</div>';
+
+            }
+
+            if(stristr('home, lifestyle', $this->currentSection)) {
+
+                if($this->currentSection === 'home')
                     echo '<div class="im-background">';
 
-                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
+                echo '<div'.$divClass.'>';
 
-                    $object->display($sectionData->id, $label['row-2']);
+                    $object->display($sectionData['id'], $label['row-2']);
 
                 echo '</div>';
 
-                if($sectionData->url === 'home')
+                if($this->currentSection === 'home')
                     echo '</div>';
 
             }
 
-            if($sectionData->url === 'home' or $sectionData->url === 'podroze') {
+            if(stristr('home, podroze', $this->currentSection)) {
 
-                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
+                echo '<div'.$divClass.'>';
 
-                    $object->display($sectionData->id, $label['row-3']);
+                    $object->display($sectionData['id'], $label['row-3']);
 
                 echo '</div>';
 
@@ -112,17 +115,17 @@ $label = $object->getAllLabel();
         //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
         //In static file should be defined class, rows, col, etc. - content fix to rest page box
         //Name of files may only string section - check in foreach(dir) and stristr()
-        $object->displayStatic($sectionData->id);
+        $object->displayStatic($sectionData['id']);
 
         ?>
 
         <div class="container-fluid">
 
-            <?php $object->display($sectionData->id, $label['footer']); ?>
+            <?php $object->display($sectionData['id'], $label['footer']); ?>
 
-            <?php $object->display($sectionData->id, $label['footer-sitemap']); ?>
+            <?php $object->display($sectionData['id'], $label['footer-sitemap']); ?>
 
-            <?php $object->display($sectionData->id, $label['author']); ?>
+            <?php $object->display($sectionData['id'], $label['author']); ?>
 
         </div>
 
@@ -130,19 +133,19 @@ $label = $object->getAllLabel();
 
 </div>
 
-<?php if($sectionData->url === 'home') { ?>
+<?php if($this->currentSection === 'home') { ?>
 
     <!--Title of first row need to be injection by jQuery (RWD grid) -->
 
-    <?php $object->display($sectionData->id, $label['title-row']); ?>
+    <?php $object->display($sectionData['id'], $label['title-row']); ?>
 
     <!--Title of first, second, third row (at the beginning) need to be injection by jQuery (RWD grid) -->
 
-    <?php $object->display($sectionData->id, $label['title-col']); ?>
+    <?php $object->display($sectionData['id'], $label['title-col']); ?>
 
 <?php } ?>
 
 <?php
 
 if(!isset($session['cookie']))
-    $object->display($sectionData->id, $label['cookie']);
+    $object->display($sectionData['id'], $label['cookie']);
