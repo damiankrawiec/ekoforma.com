@@ -46,7 +46,7 @@ $label = $object->getAllLabel();
 
         <?php
 
-            if($sectionData->url !== 'home') {
+            if($sectionData->url !== 'home' and $sectionData->parent != $this->getIdFromUrl('ekopasnik', $db)) {
 
                 echo '<div class="text-center h4 p-3 section-title">';
 
@@ -61,7 +61,11 @@ $label = $object->getAllLabel();
 
             if($sectionData->url === 'sniadania') {
 
-                $object->display($sectionData->id, $label['menu'], 'parent');
+                echo '<div class="'.(!isset($sectionData->class) ? 'container' : $sectionData->class).' animated fadeIn im-content-inside">';
+
+                    $object->display($this->getIdFromUrl('ekopasnik', $db), $label['submenu'], 'parent');
+
+                echo '</div>';
 
             }
 

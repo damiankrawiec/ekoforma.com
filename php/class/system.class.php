@@ -193,7 +193,7 @@ class System extends Setting
 
         $this->currentSection = $url;
 
-        $sql = 'select section_id as id, name, name_url as url, meta, icon, class, popup, status_popup
+        $sql = 'select section_id as id, parent, name, name_url as url, meta, icon, class, popup, status_popup
                 from im_section
                 where name_url = :url';
 
@@ -206,6 +206,24 @@ class System extends Setting
         $db->bind($parameter);
 
         $this->section = $db->run('one');
+
+    }
+
+    public function getIdFromUrl($url, $db) {
+
+        $sql = 'select section_id as id
+                from im_section
+                where name_url = :url';
+
+        $db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':url', 'value' => $url, 'type' => 'string')
+        );
+
+        $db->bind($parameter);
+
+        return $db->run('one')->id;
 
     }
 

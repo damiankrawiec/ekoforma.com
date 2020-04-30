@@ -51,7 +51,8 @@ body {
   float: left;
   margin-right: 3px;
 }
-.menu nav ul li.dropdown .dropdown-menu i {
+.dropdown-menu i,
+.submenu .navbar-nav i {
   float: left;
   margin-right: 7px;
   font-size: 21px;
