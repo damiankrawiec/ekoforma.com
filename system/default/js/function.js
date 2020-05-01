@@ -41,3 +41,19 @@ function title() {
     });
 
 }
+
+function activeSubmenu() {
+
+    var $url = $('#url').val();
+
+    var $section = 'sniadania, dania-glowne, kolacje, przekaski, desery';
+
+    if($section.indexOf($url) > -1) {
+
+        $('.menu li.dropdown').addClass('active');
+
+        $('.submenu .navbar-nav li a[href=' + $url + ']').parent().addClass('active-color');
+
+    }
+
+}

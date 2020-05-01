@@ -7,4 +7,6 @@ $(function(){
 
     $('#home .object, #skladniki .object').removeClass(' im-hide-category');
 
+    activeSubmenu();
+
 });

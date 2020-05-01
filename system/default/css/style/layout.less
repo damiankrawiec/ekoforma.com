@@ -20,6 +20,10 @@
   .im-border-top {
     border-top: 2px solid @gray;
   }
+  .object-category{
+    float: right;
+    margin-right: 20px;
+  }
 }
 .menu{
   nav{
@@ -44,19 +48,38 @@
           float: left;
           margin-right: 3px;
         }
+        .dropdown-menu{
+          i {
+            float: left;
+            margin-right: 7px;
+            font-size: 21px;
+          }
+        }
       }
     }
   }
 }
-.dropdown-menu, .submenu .navbar-nav{
-  i{
-    float: left;
-    margin-right: 7px;
-    font-size: 21px;
+.submenu{
+  .navbar-nav{
+    margin: 30px auto;
+    text-align: center;
+    li{
+      padding: 0 15px 0;
+      a {
+        font-size: 16px;
+        i {
+          font-size: 22px;
+        }
+      }
+    }
+    li.active-color {
+      a, i {
+        color: @green !important;
+      }
+    }
   }
 }
 .footer-sitemap{
-
   .navbar-nav {
     margin: 0 auto;
     li.separator {
@@ -64,12 +87,9 @@
         color: @light-gray;
         font-size: 7px;
       }
-
       padding: 7px;
     }
-
   }
-
 }
 .objects:not(.logo) {
   .object {

@@ -34,6 +34,10 @@ body {
 .im-content-inside .im-border-top {
   border-top: 2px solid #ccc;
 }
+.im-content-inside .object-category {
+  float: right;
+  margin-right: 20px;
+}
 .menu nav ul li a {
   font-size: 17px;
 }
@@ -51,11 +55,27 @@ body {
   float: left;
   margin-right: 3px;
 }
-.dropdown-menu i,
-.submenu .navbar-nav i {
+.menu nav ul li.dropdown .dropdown-menu i {
   float: left;
   margin-right: 7px;
   font-size: 21px;
+}
+.submenu .navbar-nav {
+  margin: 30px auto;
+  text-align: center;
+}
+.submenu .navbar-nav li {
+  padding: 0 15px 0;
+}
+.submenu .navbar-nav li a {
+  font-size: 16px;
+}
+.submenu .navbar-nav li a i {
+  font-size: 22px;
+}
+.submenu .navbar-nav li.active-color a,
+.submenu .navbar-nav li.active-color i {
+  color: #4da65b !important;
 }
 .footer-sitemap .navbar-nav {
   margin: 0 auto;
