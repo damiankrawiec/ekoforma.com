@@ -26,6 +26,8 @@
   }
 }
 .menu{
+  position: relative;
+  z-index: 1;
   nav{
     ul{
       li{
@@ -49,10 +51,18 @@
           margin-right: 3px;
         }
         .dropdown-menu{
-          i {
-            float: left;
-            margin-right: 7px;
-            font-size: 21px;
+          min-width: 11rem;
+          a {
+            padding-bottom: 10px;
+            padding-right: 60px;
+            i {
+              float: left;
+              margin-right: 7px;
+              font-size: 21px;
+            }
+          }
+          a:hover{
+            color: @green;
           }
         }
       }

@@ -38,6 +38,10 @@ body {
   float: right;
   margin-right: 20px;
 }
+.menu {
+  position: relative;
+  z-index: 1;
+}
 .menu nav ul li a {
   font-size: 17px;
 }
@@ -55,10 +59,20 @@ body {
   float: left;
   margin-right: 3px;
 }
-.menu nav ul li.dropdown .dropdown-menu i {
+.menu nav ul li.dropdown .dropdown-menu {
+  min-width: 11rem;
+}
+.menu nav ul li.dropdown .dropdown-menu a {
+  padding-bottom: 10px;
+  padding-right: 60px;
+}
+.menu nav ul li.dropdown .dropdown-menu a i {
   float: left;
   margin-right: 7px;
   font-size: 21px;
+}
+.menu nav ul li.dropdown .dropdown-menu a:hover {
+  color: #4da65b;
 }
 .submenu .navbar-nav {
   margin: 30px auto;

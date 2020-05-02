@@ -49,7 +49,7 @@ $label = $object->getAllLabel();
             //div class to all rows (it is only variable:string)
             $divClass = ' class="' . (!isset($sectionData['class']) ? 'container' : $sectionData['class']) . ' animated fadeIn im-content-inside"';
 
-            if($this->currentSection !== 'home' and $sectionData['parent'] != $this->getSection('ekopasnik', 'id')) {
+            if($this->checkSection($this->currentSection, 'home', false) and $sectionData['parent'] != $this->getSection('ekopasnik', 'id')) {
 
                 echo '<div class="text-center h4 p-3 section-title">';
 
@@ -62,7 +62,7 @@ $label = $object->getAllLabel();
 
             }
 
-            if(stristr('sniadania', $this->currentSection)) {
+            if($this->checkSection($this->currentSection, 'sniadania', true)) {
 
                 echo '<div class="container">';
 
@@ -72,7 +72,7 @@ $label = $object->getAllLabel();
 
             }
 
-            if(!stristr('lifestyle, podroze', $this->currentSection)) {
+            if($this->checkSection($this->currentSection, 'lifestyle, podroze', false)) {
 
                 echo '<div'.$divClass.'>';
 
@@ -82,9 +82,9 @@ $label = $object->getAllLabel();
 
             }
 
-            if(stristr('home, lifestyle', $this->currentSection)) {
+            if($this->checkSection($this->currentSection, 'home, lifestyle', true)) {
 
-                if($this->currentSection === 'home')
+                if($this->checkSection($this->currentSection, 'home', true))
                     echo '<div class="im-background">';
 
                 echo '<div'.$divClass.'>';
@@ -93,12 +93,12 @@ $label = $object->getAllLabel();
 
                 echo '</div>';
 
-                if($this->currentSection === 'home')
+                if($this->checkSection($this->currentSection, 'home', true))
                     echo '</div>';
 
             }
 
-            if(stristr('home, podroze', $this->currentSection)) {
+            if($this->checkSection($this->currentSection, 'home, podroze', true)) {
 
                 echo '<div'.$divClass.'>';
 
@@ -133,7 +133,7 @@ $label = $object->getAllLabel();
 
 </div>
 
-<?php if($this->currentSection === 'home') { ?>
+<?php if($this->checkSection($this->currentSection, 'home', true)) { ?>
 
     <!--Title of first row need to be injection by jQuery (RWD grid) -->
 
