@@ -62,7 +62,7 @@ $label = $object->getAllLabel();
 
             }
 
-            if($this->checkSection($this->currentSection, 'sniadania', true)) {
+            if($this->checkSection($this->currentSection, 'sniadania, dania-glowne, kolacje, przekaski, desery', true)) {
 
                 echo '<div class="container">';
 

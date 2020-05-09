@@ -14,7 +14,8 @@ class Run extends Session
 
     //Admins array
     private $admin = array(
-        'm@internet.media.pl' => array('image' => 'dk.jpg', 'password' => 'd65c6137b071abf517487b473ab207e27cb0035c')
+        'm@internet.media.pl' => array('image' => 'dk.jpg', 'password' => 'd65c6137b071abf517487b473ab207e27cb0035c'),
+        'patrycjakusmierz5@gmail.com' => array('image' => 'pk.jpg', 'password' => '8fc00e5f60fb3fe0cb2852215b5358cb61970b77')
     );
 
     private function checkAdmin($email, $password) {
