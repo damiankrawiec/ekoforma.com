@@ -1,5 +1,8 @@
 <?php
 
+if($this->checkSection($this->currentSection, 'ekopasnik', true))
+    $this->link('sniadania');
+
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
