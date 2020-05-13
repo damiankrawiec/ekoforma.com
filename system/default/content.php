@@ -50,7 +50,7 @@ $label = $object->getAllLabel();
         <?php
 
             //div class to all rows (it is only variable:string)
-            $divClass = ' class="' . (!isset($sectionData['class']) ? 'container' : $sectionData['class']) . ' animated fadeIn im-content-inside"';
+            $divClass = ' class="' . ($sectionData['class'] !== '' ? 'container' : $sectionData['class']) . ' animated fadeIn im-content-inside"';
 
             if($this->checkSection($this->currentSection, 'home', false) and $sectionData['parent'] != $this->getSection('ekopasnik', 'id')) {
 
