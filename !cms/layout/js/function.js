@@ -7,46 +7,63 @@ function validation($form){
     var $submit = true;
     $($form + ' .validation').each(function(){
 
-        if($(this).attr('class').indexOf(':') > -1){
+        var $this = $(this);
+
+        if($this.attr('class').indexOf(':') > -1){
 
             var $check = true;
 
-            var $classValidation = $(this).attr('class');
-
-            $typeValidation = $classValidation.split(':')[1];
+            var $typeValidation = $this.attr('class').split(':')[1];
 
             //!!!Define type of validation field
             if($typeValidation === 'text')
-                $check = text($(this).val());
+                $check = text($this.val());
 
             if($typeValidation === 'select')
-                $check = select($(this).val());
+                $check = select($this.val());
 
             if($typeValidation === 'email')
-                $check = email($(this).val());
+                $check = email($this.val());
 
             if($typeValidation === 'icon')
-                $check = icon($(this).val());
+                $check = icon($this.val());
 
             if($typeValidation === 'password')
-                $check = password($(this).val());
+                $check = password($this.val());
 
             if($typeValidation === 'file')
-                $check = file($(this).val());
+                $check = file($this.val());
 
             if($typeValidation === 'source')
-                $check = source($(this).val());
+                $check = source($this.val());
 
             if($typeValidation.indexOf( 'textarea') > -1)
-                $check = textarea($(this).parent().find('.tox-tinymce').find('.tox-edit-area').html());
+                $check = textarea($this.parent().find('.tox-tinymce').find('.tox-edit-area').html());
 
             if(!$check){
 
-                $(this).after($icon);
+                $this.after($icon);
 
                 $submit = false;
             }
 
+        }
+
+    });
+
+    $($form + ' .size').each(function(){
+
+        var $this = $(this);
+
+        var $check = true;
+
+        $check = size($this.val(), $this.attr('size'));
+
+        if(!$check){
+
+            $this.after($icon);
+
+            $submit = false;
         }
 
     });
@@ -354,7 +371,15 @@ function copyField($this) {
 
     var $places = $this.split(':');
 
-    $('#' + $places[1]).val($('#' + $places[0]).val());
+    var $places1 = $('#' + $places[1]);
+
+    $places1.val($('#' + $places[0]).val());
+
+    if($places1.hasClass('size')) {
+
+        inputLengthOneField($places1);
+
+    }
 
 }
 function fix() {
@@ -526,6 +551,37 @@ function checkSubmenuIsEmpty() {
     if($empty) {
 
         $('#menu-object .dropdown-menu').append($('#warning-icon').html());
+
+    }
+
+}
+
+function inputLength($this) {
+
+    $('.' + $this.attr('id') + ' .size').each(function(){
+
+        inputLengthOneField($(this));
+
+    });
+
+}
+function inputLengthOneField($thisSize) {
+
+    var $leftChar = parseInt($thisSize.attr('size')) - $thisSize.val().length;
+
+    var $nextSpan = $thisSize.nextAll('span');
+
+    $nextSpan.text($leftChar);
+
+    if($leftChar < 0) {
+
+        $nextSpan.removeClass('badge-info');
+        $nextSpan.addClass('badge-warning');
+
+    }else{
+
+        $nextSpan.removeClass('badge-warning');
+        $nextSpan.addClass('badge-info');
 
     }
 
