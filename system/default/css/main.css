@@ -102,7 +102,7 @@ body {
   font-size: 7px;
 }
 .objects:not(.logo) .object {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .objects:not(.logo) .object img {
   width: 100%;
@@ -201,8 +201,7 @@ body {
   padding: 10px;
   background-color: #eee;
 }
-#home .form-group,
-#skladniki .form-group {
+.form-group {
   display: none;
 }
 .section-title i {

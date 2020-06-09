@@ -14,6 +14,21 @@ $label = $object->getAllLabel();
 
 ?>
 
+<?php
+
+//Show category select on ekopasnik sections
+if($sectionData['parent'] == $this->getSection('ekopasnik', 'id')) {
+
+    echo '<style>
+            .form-group{
+                display: block;
+            }
+          </style>';
+
+}
+
+?>
+
 <div id="im-content">
 
     <div id="<?php echo $this->currentSection; ?>">
