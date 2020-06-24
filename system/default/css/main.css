@@ -211,6 +211,13 @@ body {
 #process {
   color: #fff;
 }
+.translation img {
+  width: 300px !important;
+  float: left;
+  margin-left: 0;
+  margin-right: 30px;
+  margin-top: 10px;
+}
 @media (max-width: 992px) {
   .separator,
   .footer-sitemap {
