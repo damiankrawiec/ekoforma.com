@@ -91,6 +91,9 @@ body {
 .submenu .navbar-nav li.active-color i {
   color: #4da65b !important;
 }
+.logo .carousel-caption {
+  display: none !important;
+}
 .footer-sitemap .navbar-nav {
   margin: 0 auto;
 }
@@ -116,7 +119,7 @@ body {
 .objects:not(.logo) .object .text section,
 .objects:not(.logo) .object .text p {
   font-size: 15px;
-  line-height: 28px;
+  line-height: 30px;
 }
 .about {
   position: absolute;
@@ -212,11 +215,16 @@ body {
   color: #fff;
 }
 .translation img {
-  width: 300px !important;
+  width: 550px !important;
   float: left;
   margin-left: 0;
   margin-right: 30px;
   margin-top: 10px;
+}
+@media (max-width: 430px) {
+  .logo img {
+    width: 100%;
+  }
 }
 @media (max-width: 992px) {
   .separator,
@@ -227,6 +235,13 @@ body {
 @media (max-width: 1630px) {
   .title-col-text {
     position: unset;
+  }
+}
+@media (max-width: 1100px) {
+  .translation img {
+    width: 100%!important;
+    float: none;
+    margin: 10px 0 10px;
   }
 }
 /*# sourceMappingURL=main.css.map */
