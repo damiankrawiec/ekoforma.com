@@ -57,3 +57,33 @@ function activeSubmenu() {
     }
 
 }
+
+function nameLink() {
+
+    if($('.object').find('a.btn-success').length) {
+
+        $('#im-content .objects').each(function() {
+
+            let $this = $(this);
+
+            $this.find('.object').each(function() {
+
+                let $this2 = $(this);
+
+                if($this2.find('a.btn-success').length) {
+
+                    let $href = $this2.find('a.btn-success').attr('href');
+
+                    let $title = $this2.find('.title').children();
+
+                    $title.html('<a href="' + $href + '" class="text-success">' + $title.html() + '</a>');
+
+                }
+
+            });
+
+        });
+
+    }
+
+}
